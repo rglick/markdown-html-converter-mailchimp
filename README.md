@@ -1,6 +1,6 @@
 # markdown-html-converter
 This a web service to convert Markdown into HTML. This takes in a
-new-line delineated string passed in as content and returns an HTML-formatted string
+new-line delineated string passed in as content and returns an HTML-formatted string.
 
 Note - I developed this project using a Spring Boot project template provided by IntelliJ
 as that is what I have the most experience using. There is some boilerplate code provided
@@ -33,7 +33,7 @@ Breaking these out allows us to also add cleaner testing coverage to each piece 
 
 ### Edge Cases
 These are a couple of the edge cases that I feel like are worth mentioning
-- actually appearing in plain text
+- Links appearing in plain text
 - new line characters appearing in plain text
 - "Fake" header sections - sections that at first look like header sections, but more processing shows that they're not
 
@@ -42,7 +42,7 @@ I used two main forms of testing for this project - unit testing and manual test
 Unit tests are stored in /src/test - I use a data provider to provide sample data to each test
 
 For manual testing, I used both curl requests from a terminal and Postman (as Postman provides better formatting
-for the response). I also used typing into this README.md to help me try to find edge cases
+for the response). I also used writing this README.md to help me try to find edge cases.
 
 Here is a sample curl request:
 curl -X POST http://localhost:8080/markdown \
@@ -59,7 +59,7 @@ improvements we can make here
 To make the service more user-friendly, we can expand upon what is an 
 acceptable request
 - Accept a Markdown file in as part of the request
-- accept separated out lines as data
+- A ccept separated out lines as data
 
 We could also add authorization in the form of OAuth tokens. While there really isn't a need
 at the moment to make this more secure, access control is normally really important - we wouldn't want someone to be
