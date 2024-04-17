@@ -59,7 +59,7 @@ improvements we can make here
 To make the service more user-friendly, we can expand upon what is an 
 acceptable request
 - Accept a Markdown file in as part of the request
-- A ccept separated out lines as data
+- Accept separated out lines as data
 
 We could also add authorization in the form of OAuth tokens. While there really isn't a need
 at the moment to make this more secure, access control is normally really important - we wouldn't want someone to be
