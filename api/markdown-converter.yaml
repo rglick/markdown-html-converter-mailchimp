@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: Markdown-HTML Converter
+  description: |-
+    This is the API for our Markdown => HTML converter
+  version: 0.1.0
+externalDocs:
+  description: Rules and assignment listed on Github
+  url: https://gist.github.com/mc-interviews/305a6d7d8c4ba31d4e4323e574135bf9
+paths:
+  /markdown:
+    post:
+      tags:
+        - markdown
+      summary: Convert Markdown into HTML
+      description: Convert markdown into HTML with the given rules in the external docs
+      operationId: convertMarkdown
+      requestBody:
+        description: Markdown String - each line separated by a new line ascii character (/n)
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Markdown'
+        required: true
+      responses:
+        '200':
+          description: Successful HTML conversion
+          content:
+            application/html:
+              schema:
+                $ref: '#/components/schemas/HTML'
+        '400':
+          description: Invalid Request - request was not formatted properly. Probably content is not populated properly
+        '500':
+          description: Internal Server error - service was unable to handle request
+components:
+  schemas:
+    Markdown:
+      type: object
+      properties:
+        content:
+          type: string
+          description: New-line character deliminated string of Markdown
+          example: |-
+            # Header one\n\nHello there\n\nHow are you?\nWhat's going on?\n\n## Another Header\n\nThis is a paragraph [with an inline link](http://google.com). Neat, eh?\n\n## This is a header [with a link](http://yahoo.com)
+    HTML:
+      type: string
+      description: HTML-converted string
+      example: |-
+        <h1>Header one</h1>
+        <p>Hello there</p>
+        <p>How are you?
+          What's going on?</p>
+        <h2>Another Header</h2>
+        <p>This is a paragraph <a href="http://google.com">with an inline link</a>. Neat, eh?</p>
+        <h2>This is a header <a href="http://yahoo.com">with a link</a></h2>
